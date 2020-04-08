@@ -4,7 +4,6 @@ function SearchField(props){
     return (
         <form>
             <div className="form-group">
-                <label>Search:</label>
                 <input
                     onChange={props.handleInputChange}
                     value={props.search}
@@ -14,7 +13,7 @@ function SearchField(props){
                     placeholder="Search for an employee by their name"
                     id="search"
                 />
-                <button onClick={props.handleFormSubmit} className="btn">
+                <button onClick={props.handleFormSubmit} className="btn btn-primary">
                     Search
                 </button>
             </div>

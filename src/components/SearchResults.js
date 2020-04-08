@@ -32,9 +32,9 @@ class SearchResults extends Component {
         .catch(err => console.log(err));
     };
     
-
-   
-       
+    // searchUser = event => {
+    //     {[...this.state.results].filter(e => )}
+    // }
 
     handleInputChange = event =>{
         const name = event.target.name;
