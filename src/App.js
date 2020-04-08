@@ -1,9 +1,9 @@
 import React from "react";
-import EmployeeTemplate from "./components/EmployeeTemplate";
+import SearchResults from "./components/SearchResults";
 
 
 function App() {
-  return <EmployeeTemplate />;
+  return <SearchResults />;
 }
 
 export default App;
