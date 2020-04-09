@@ -14,7 +14,7 @@ class SearchResults extends Component {
         
         api.search()
         .then(res => {
-            
+        console.log(res)
             this.setState({ 
             results: res.data.results.map((e, i)=>({
                 image: e.picture.large,
@@ -25,16 +25,15 @@ class SearchResults extends Component {
                 key: i
         
                 }))
-
             })
+            this.setState({savedQuery: this.state.results});
 
          })
         .catch(err => console.log(err));
     };
     
-    // searchUser = event => {
-    //     {[...this.state.results].filter(e => )}
-    // }
+
+   
 
     handleInputChange = event =>{
         const name = event.target.name;
@@ -42,12 +41,25 @@ class SearchResults extends Component {
         this.setState({
             [name]: value
         });
+        
+            this.setState({results: this.state.savedQuery})
+        
+        
     }
 
     handleFormSubmit = event => {
         event.preventDefault();
-        this.searchUser(this.state.search);
+        let filtered = [];
+        for (var i=0; i < this.state.results.length; i++){
+            if (this.state.results[i].firstName === this.state.search || this.state.results[i].lastName === this.state.search){
+            filtered.push(this.state.results[i])
+                }
+        }
+        this.setState({results: filtered});
     };
+
+
+
 
     render() {
         return (
